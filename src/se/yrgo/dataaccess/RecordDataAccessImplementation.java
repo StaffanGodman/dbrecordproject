@@ -34,9 +34,11 @@ public class RecordDataAccessImplementation implements RecordDataAccess {
 	public List<Collector> findAllCollectors() {
 		Collector col1 = new Collector("Staffan", "staffan@mail.com");
 		Collector col2 = new Collector("Adrian", "adde@mail.com");
+		Collector col3 = new Collector("Björn", "bjorn@mail.com");
 		List<Collector>collectors = new ArrayList<>();
 		collectors.add(col1);
 		collectors.add(col2);
+		collectors.add(col3);
 		return collectors;
 	}
 
