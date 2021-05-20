@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Alternative;
 
 import se.yrgo.domain.Collector;
 import se.yrgo.domain.RecordCopy;
 import se.yrgo.domain.RecordRelease;
 
 @Stateless
-public class RecordDataAccessImplementation implements RecordDataAccess {
+// @Alternative
+@TestingDao
+public class RecordDataAccessTestingVersion implements RecordDataAccess {
 
 	@Override
 	public void insertRecordRelease(RecordRelease recordRelease) {
@@ -56,6 +59,12 @@ public class RecordDataAccessImplementation implements RecordDataAccess {
 
 	@Override
 	public List<RecordCopy> findCopiesByCollector(Collector collector) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Collector> findCollectorByUserName(String userName) {
 		// TODO Auto-generated method stub
 		return null;
 	}

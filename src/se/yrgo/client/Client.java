@@ -24,7 +24,17 @@ public class Client {
 	               (RecordManagementService)jndi.lookup(
 	            		   "snapshot_dbrecordproject/RecordManagementImplementation!"
 	            		   + "se.yrgo.service.RecordManagementService");
+		Collector col1 = new Collector("Staffan", "staffan@mail.com");
+		Collector col2 = new Collector("Adrian", "adde@mail.com");
+		Collector col3 = new Collector("Björn", "bjorn@mail.com");
+		service.registerCollector(col1);
+		service.registerCollector(col2);
+		service.registerCollector(col3);
 		List<Collector> collectors = service.getAllCollectors();
+		for (Collector collector: collectors) {
+			System.out.println(collector);
+		}
+		collectors=service.getCollectorByUserName("Björn");
 		for (Collector collector: collectors) {
 			System.out.println(collector);
 		}

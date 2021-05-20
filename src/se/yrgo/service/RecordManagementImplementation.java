@@ -5,7 +5,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import se.yrgo.dataaccess.ProductionDao;
 import se.yrgo.dataaccess.RecordDataAccess;
+import se.yrgo.dataaccess.TestingDao;
 import se.yrgo.domain.Collector;
 import se.yrgo.domain.RecordCopy;
 import se.yrgo.domain.RecordRelease;
@@ -14,12 +16,12 @@ import se.yrgo.domain.RecordRelease;
 public class RecordManagementImplementation implements RecordManagementService {
 
 	@Inject
+	@ProductionDao
 	private RecordDataAccess dao;
 	
 	@Override
 	public void registerCollector(Collector collector) {
-		// TODO Auto-generated method stub
-		
+		dao.insertCollector(collector);
 	}
 
 	@Override
@@ -55,6 +57,12 @@ public class RecordManagementImplementation implements RecordManagementService {
 	public List<RecordCopy> getCopiesByCollector(Collector collector) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Collector> getCollectorByUserName(String userName) {
+		
+		return dao.findCollectorByUserName(userName);
 	}
 
 }

@@ -1,10 +1,19 @@
 package se.yrgo.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
 public class Collector implements java.io.Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO) 
 	private int collectorId; // primary key
 	private String userName;
 	private String email;
@@ -40,6 +49,13 @@ public class Collector implements java.io.Serializable{
 	public String toString() {
 		return "Collector [collectorId=" + collectorId + ", userName=" + userName + ", email=" + email + "]";
 	}
+	
+	private static final long serialVersionUID = 1L;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 	
 	
 	
