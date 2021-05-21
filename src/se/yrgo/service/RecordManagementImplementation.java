@@ -32,7 +32,7 @@ public class RecordManagementImplementation implements RecordManagementService, 
 
 	@Override
 	public void registerRecordCopy(RecordCopy recordCopy) {
-		// TODO Auto-generated method stub
+		dao.insertRecordCopy(recordCopy);
 		
 	}
 
@@ -43,20 +43,17 @@ public class RecordManagementImplementation implements RecordManagementService, 
 
 	@Override
 	public List<RecordRelease> getAllRecordReleases() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findAllRecordReleases();
 	}
 
 	@Override
 	public List<RecordRelease> searchByGenre(String genre) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findByGenre(genre);
 	}
 
 	@Override
 	public List<RecordCopy> getCopiesByCollector(Collector collector) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findCopiesByCollector(collector);
 	}
 
 	@Override

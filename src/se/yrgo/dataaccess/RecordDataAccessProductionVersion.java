@@ -35,7 +35,7 @@ public class RecordDataAccessProductionVersion implements RecordDataAccess {
 
 	@Override
 	public void insertRecordCopy(RecordCopy recordCopy) {
-		// TODO Auto-generated method stub
+		em.persist(recordCopy);
 		
 	}
 
@@ -55,20 +55,25 @@ public class RecordDataAccessProductionVersion implements RecordDataAccess {
 
 	@Override
 	public List<RecordRelease> findAllRecordReleases() {
-		// TODO Auto-generated method stub
-		return null;
+		Query q = em.createQuery("select recordrelease from RecordRelease recordrelease");
+		List<RecordRelease> recordreleases = q.getResultList();
+		return recordreleases;
 	}
 
 	@Override
 	public List<RecordRelease> findByGenre(String genre) {
-		// TODO Auto-generated method stub
-		return null;
+		Query q = em.createQuery("select recordrelease from RecordRelease recordrelease where recordrelease.genre= :genre");
+		q.setParameter("genre", genre);
+		List<RecordRelease> recordreleases = q.getResultList();
+		return recordreleases;
 	}
 
 	@Override
 	public List<RecordCopy> findCopiesByCollector(Collector collector) {
-		// TODO Auto-generated method stub
-		return null;
+		Query q = em.createQuery("select recordcopy from RecordCopy recordcopy where recordcopy.collectorId= :collectorId");
+		q.setParameter("collectorId", collector.getCollectorId());
+		List<RecordCopy> recordcopies = q.getResultList();
+		return recordcopies;
 	}
 
 }
