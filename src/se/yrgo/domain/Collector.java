@@ -1,5 +1,6 @@
 package se.yrgo.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,7 @@ public class Collector implements java.io.Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO) 
 	private int collectorId; // primary key
 	private String userName;
+	@Column(unique = true)
 	private String email;
 	
 	public Collector() {}

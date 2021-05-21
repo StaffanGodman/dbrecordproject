@@ -1,9 +1,19 @@
 package se.yrgo.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class RecordRelease {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int releaseId; // primary key
 	private String title;
 	private String artist;
+	@Column(unique = true)
 	private String serialNo; // candidate key
 	private String genre;
 	private int releaseYear;

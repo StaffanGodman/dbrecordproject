@@ -13,7 +13,7 @@ import se.yrgo.domain.RecordCopy;
 import se.yrgo.domain.RecordRelease;
 
 @Stateless
-public class RecordManagementImplementation implements RecordManagementService {
+public class RecordManagementImplementation implements RecordManagementService, RecordManagementServiceLocal {
 
 	@Inject
 	@ProductionDao
@@ -26,7 +26,7 @@ public class RecordManagementImplementation implements RecordManagementService {
 
 	@Override
 	public void registerRecordRelease(RecordRelease recordRelease) {
-		// TODO Auto-generated method stub
+		dao.insertRecordRelease(recordRelease);
 		
 	}
 
@@ -61,7 +61,6 @@ public class RecordManagementImplementation implements RecordManagementService {
 
 	@Override
 	public List<Collector> getCollectorByUserName(String userName) {
-		
 		return dao.findCollectorByUserName(userName);
 	}
 

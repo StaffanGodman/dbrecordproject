@@ -23,7 +23,7 @@ public class RecordDataAccessProductionVersion implements RecordDataAccess {
 	
 	@Override
 	public void insertRecordRelease(RecordRelease recordRelease) {
-		// TODO Auto-generated method stub
+		em.persist(recordRelease);
 		
 	}
 
